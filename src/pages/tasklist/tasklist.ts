@@ -35,19 +35,19 @@ export class TaskListPage {
   }
 
   addItem(){
-    // let theNewTask: string = prompt("New Task");
-    // if(theNewTask != ''){    
-    //   this.tasks.push({title:theNewTask, status : "open"});
-    //   this.itemRef.set(this.tasks);
-    //  }
-    this.dialogs.prompt('Add a task', 'Ionic2Do',["Ok", "Cancel"],'').then(
-      theResult => {
-        if((theResult.buttonIndex == 1) && (theResult.input1 !== '')){
-         this.tasks.push({title:theResult.input1, status : "open"});
-         this.itemRef.set(this.tasks);
-        }
-      }
-    )
+    let theNewTask: string = prompt("New Task");
+    if(theNewTask != ''){    
+      this.tasks.push({title:theNewTask, status : "open"});
+      this.itemRef.set(this.tasks);
+     }
+    // this.dialogs.prompt('Add a task', 'Ionic2Do',["Ok", "Cancel"],'').then(
+    //   theResult => {
+    //     if((theResult.buttonIndex == 1) && (theResult.input1 !== '')){
+    //      this.tasks.push({title:theResult.input1, status : "open"});
+    //      this.itemRef.set(this.tasks);
+    //     }
+    //   }
+    // )
   }
 
   markAsDone(slidingItem:ItemSliding, task: Task){    
