@@ -22,7 +22,6 @@ export class TaskListPage {
   itemRef: AngularFireObject<any>;
   item: Observable<any>;
   constructor(public navCtrl: NavController, db: AngularFireDatabase,public dialogs: Dialogs) {
-    
     this.itemRef = db.object('tasks');
     this.itemRef.snapshotChanges().subscribe(action => {
         this.item = action.payload.val();
@@ -36,7 +35,8 @@ export class TaskListPage {
 
   addItem(){
     let theNewTask: string = prompt("New Task");
-    if(theNewTask != ''){    
+    console.log("new task ="+theNewTask);
+    if(theNewTask != '' && theNewTask != null){    
       this.tasks.push({title:theNewTask, status : "open"});
       this.itemRef.set(this.tasks);
      }
